@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link id="favicon" rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="manifest" href="./manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prigoana.lol</title>
+    <link rel="stylesheet" href="./common.css">
+    <script>
+        // Check if the Media Session API is supported
+        if ('mediaSession' in navigator) {
+            // Define media session actions
+            navigator.mediaSession.setActionHandler('play', function() {
+                webamp.play();
+            });
+
+            navigator.mediaSession.setActionHandler('pause', function() {
+                webamp.stop();
+            });
+
+            navigator.mediaSession.setActionHandler('previoustrack', function() {
+                webamp.previousTrack();
+            });
+
+            navigator.mediaSession.setActionHandler('nexttrack', function() {
+                webamp.nextTrack();
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="terminal">
+            <ul class="navbar">
+                <li><a href="../">back</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <p style="line-height: 50px; height: 200px;">&nbsp;</p>
+        <div id="app"></div>
+    </main>
+    <footer>
+    </footer>
+    <script src="https://unpkg.com/webamp/built/webamp.bundle.min.js"></script>
+    <script src="https://unpkg.com/butterchurn/lib/butterchurn.min.js"></script>
+    <script src="https://unpkg.com/butterchurn-presets/lib/butterchurnPresets.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
